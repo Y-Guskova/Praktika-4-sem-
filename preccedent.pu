@@ -1,0 +1,20 @@
+@startuml
+
+skinparam actorStyle awesome
+
+:Cleaner: -up-> (Recieve the signal)
+:Cleaner: -up-> (Find changed colours)
+:Cleaner: -up-> (Move forward)
+:Cleaner: -left-> (Move back)
+:Cleaner: --> (Turn left)
+:Cleaner: --> (Turn right)
+:Cleaner: --> (Start cleaning)
+:Cleaner: --> (Stop cleaning)
+:Cleaner: -> (Hand up)
+:Cleaner: --> (Hand down)
+:Cleaner: -up-> (Move hand right/left)
+
+:Human: -up-> (Recieve the coordinats from camera)
+:Human: --> (Enter the coordinats)
+
+@enduml
