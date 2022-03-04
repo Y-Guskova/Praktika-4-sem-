@@ -1,0 +1,25 @@
+#include <iostream>
+
+class Human {
+  int x, y;
+  public: 
+    enterCoord() {
+    cin x;
+    cin y;
+      }
+};
+class Robot : public Human {
+  public:
+    int move(){
+    }
+    int turn () {
+    }
+    int clean() {
+    }
+};
+int main() {
+  Human coor;
+  coor.enterCoord();
+  Robot first;
+  
+}
