@@ -1,0 +1,19 @@
+@startuml
+class camera {
+find_graffity()
+}
+class human {
+get_coordinats()
+}
+class robot {
+move()
+turn()
+clean()
+}
+class graffity
+
+
+camera -right-> human: send coordinats
+human -right-> robot : enter coordinats
+robot -right-> graffity: find
+@enduml
