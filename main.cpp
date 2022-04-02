@@ -74,5 +74,3 @@ int main() {
         break;
     States state = off;
 }
-
-#арахис
