@@ -1,0 +1,27 @@
+@startuml
+[*] --> On : start_engine
+
+On --> ERROR
+On --> Read_Coord : recieve_coord
+
+Read_Coord --> Move_Forward : start_mooving
+Read_Coord --> ERROR 
+
+Read_Coord --> Start_Cleaning
+Read_Coord --> Turn_Left
+Read_Coord --> Turn_Right
+
+Move_Forward --> Turn_Left : turn_left
+Move_Forward --> Turn_Right : turn_right
+Move_Forward --> Start_Cleaning : st_cl
+
+Turn_Left --> Move_Forward
+Turn_Right --> Move_Forward
+
+Start_Cleaning --> Stop_Cleaning
+
+Stop_Cleaning --> OFF
+
+ERROR --> OFF
+OFF --> On
+@enduml
