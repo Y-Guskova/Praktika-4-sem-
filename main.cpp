@@ -3,30 +3,35 @@
 using namespace std;
 
 enum States{
-on, off, error, readcoor, movefor, turnr, turnl, startcl, stopcl};
+on, off, error, readcoor, movefor, turn, turnr, turnl, startcl, stopcl};
 
 class Human {
 public: 
 
-    States state = on;
-    int x=0, y=0, a=0;
+    int x = 0, y = 0;
 
     int enterCoor() {
         cout << "Enter coordinats: ";
         cin >> x >> y;
         switch (state) {
-        if (!(cin >> x >> y) || (x<0 && y<0))
+        if (!(cin >> x >> y) || (x < 0 && y < 0))
             States state = error;
         States state = readcoor;
         }
     }
 };
 
-class Robot:public Human {
+class Robot: {
+
+    commandStrategy* commandStrategy;
 public:
-   
-    int move(int x1 = 0, int y1 = 0) {
-        turn();
+    void getCommand() {
+        void command = commandStrategy->getCommand();
+    }
+
+    int a = 0;
+
+    int move (int x1 = 0, int y1 = 0) {
         while (x1 != x && y1 != y) {
             if (a = 0)
             {
@@ -50,8 +55,6 @@ public:
 
             }
         }
-        clean();
-        stop();
     }
     int turn() {
         if (x > 0 && y = 0)
@@ -66,6 +69,7 @@ public:
         {
             a = 3;
         }
+        States state = turn;
     }
     int clean() {
         States state = startcl;
@@ -73,14 +77,81 @@ public:
     int stop() {
         States state = stopcl;
     }
+    int off() {
+        States state = off;
+    }
+    int on() {
+        States state = on;
+    }
+};
+
+class commandStrategy {
+public:
+    virtual void getCommand()=0;
+};
+
+class consoleCommandStrategy : public commandStrategy {
+public:
+    void getCommand() {
+        cout << "\nconsole";
+    }
 
 };
 
+class netCommandStrategy : public commandStrategy {
+public:
+    void getCommand() {
+        cout << "\nnet";
+    }
+
+}
+
+
 int main() {
     Human man;
-    Robot first;
+    Robot robo;
     man.enterCoor();
-    if (States state = error;)
-        break;
-    States state = off;
+    while (States state == error)
+    {
+        States state = off;
+        man.enterCoor();
+    }
+    while (true)
+    {
+        int x = 1;
+        switch (x)
+        {
+        case 1:
+
+            robo.turn();
+            break;
+
+        case 2:
+
+            robo.move();
+            break;
+
+        case 3:
+
+            robo.clean();
+            break;
+
+        case 4:
+
+            robo.stop();
+            break;
+
+        case 5:
+
+            robo.off();
+            break;
+
+        case 6:
+
+            robo.on();
+            break;
+        }
+    }
+    
+
 }
