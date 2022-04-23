@@ -1,0 +1,7 @@
+class commandStrategy {
+public:
+    virtual string getCommand()
+    {
+        cout << "commandStrategy" << endl;
+    }
+};
