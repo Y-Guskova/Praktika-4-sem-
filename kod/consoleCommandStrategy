@@ -1,0 +1,5 @@
+#include "consoleCommandStrategy.h"
+string consoleCommandStrategy::getCommand()
+{
+	cout << "Console" << endl;
+}
